@@ -1,78 +1,54 @@
-# Evaluación 02 - Implementación de Sistemas de Información
+# Sistema de Gestión de Empleados
 
 ## Descripción
 
-Aplicación desarrollada en **Java + Swing** para el registro de empleados, conectada a **MySQL mediante JDBC**.
-
-El proyecto aplica la estructura trabajada en clase, separando la entidad, la lógica de acceso a datos, las utilidades y la interfaz gráfica.
-
-## Tecnologías
-
-- Java / Swing
-- Eclipse
-- Maven
-- MySQL / MySQL Workbench
-- JDBC
-- Git / GitHub
+Aplicación de escritorio desarrollada en Java Swing para la gestión de empleados, conectada a una base de datos MySQL mediante JDBC.
 
 ## Funcionalidades
 
 - Registro de empleados.
-- Selección del tipo de empleado mediante `JComboBox` cargado desde MySQL.
-- Validación de datos mediante `ValidateUtil` y expresiones regulares.
-- Persistencia de información en MySQL.
-- Limpieza del formulario y mensajes de confirmación.
+- Actualización de información.
+- Búsqueda de empleados por DNI.
+- Listado de empleados.
+- Eliminación lógica mediante el cambio de estado activo/inactivo.
+- Eliminación física de registros.
+- Validación de los datos ingresados.
+- Gestión de tipos de empleados mediante una clave foránea.
+
+## Tecnologías utilizadas
+
+- Java
+- Java Swing
+- JDBC
+- MySQL
+- Eclipse IDE
+- Git y GitHub
 
 ## Base de datos
 
-**BD:** `evaluacion_t2`
+El archivo `BD_empleado.sql` contiene el script SQL de la base de datos del proyecto.
 
-Tablas:
+La tabla `empleado` incluye el campo `estado`, que permite identificar si un empleado está activo o inactivo.
 
-- `empleado`
-- `tipoempleado`
+## Estructura del proyecto
 
-La tabla `empleado` se relaciona con `tipoempleado` mediante:
+- `entity`: entidades del sistema.
+- `model`: operaciones de acceso a datos.
+- `util`: conexión a MySQL y utilidades.
+- `vista`: interfaces gráficas.
 
-`empleado.idTipoEmpleado → tipoempleado.idTipoEmpleado (FK)`
+## Configuración
 
-Esto permite mantener la relación entre el empleado y su tipo de forma estructurada.
+1. Instalar Java y MySQL.
+2. Ejecutar el script `BD_EMPLEADO_EVT2.sql` en MySQL Workbench.
+3. Configurar las credenciales de conexión en `MySqlDBConexion.java`.
+4. Abrir el proyecto en Eclipse y ejecutar el formulario principal.
 
-## Estructura
+Autor
+Cristhian Elfer Ñahui Navarro
 
-```text
-src/
-├── entity/
-│   └── Empleado.java
-├── model/
-│   ├── EmpleadoModel.java
-│   └── TipoEmpleadoModel.java
-├── util/
-│   ├── MySqlDBConexion.java
-│   ├── TeoriaExpresionesRegulares.java
-│   └── ValidateUtil.java
-└── vista/
-    └── FrmRegistraEmpleado.java
-```
+Profesor: Jacinto Gutarra Jorge Lorenzo
 
-## Flujo del sistema
+Curso: Implementación de Sistemas de Información
 
-```text
-FrmRegistraEmpleado
-        ↓
-EmpleadoModel / TipoEmpleadoModel
-        ↓
-MySqlDBConexion
-        ↓
-MySQL
-```
-
-## Autor
-
-**Cristhian Elfer Ñahui Navarro**
-
-**Profesor:** Jacinto Gutarra Jorge Lorenzo
-
-**Curso:** Implementación de Sistemas de Información
-
-**Evaluación 02**
+Evaluación T03
